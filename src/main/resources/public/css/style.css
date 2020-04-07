@@ -11,14 +11,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
     background-color: #ecf0f1;
 }
 .content {
     background-color: #fff;
     border-radius: 15px;
-    width: 960px;
-    height: 50%;
+    width: 1040px;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -26,7 +26,7 @@ body {
 .content::before {
     content: "";
     position: absolute;
-    background-color: #58af9b;
+    background-color: #FFE4E1;
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -41,10 +41,10 @@ body {
     text-transform: capitalize;
 }
 .title-primary {
-    color: #fff;
+    color: #000000;
 }
 .title-second {
-    color: #58af9b;
+    color: #FFE4E1;
 }
 .description {
     font-size: 14px;
@@ -52,15 +52,15 @@ body {
     line-height: 30px;
 }
 .description-primary {
-    color: #fff;
+    color: #000000;
 }
 .description-second {
-    color: #7f8c8d;
+    color: #000000;
 }
 .btn {
     border-radius: 15px;
     text-transform: uppercase;
-    color: #fff;
+    color: #000000;
     font-size: 10px;
     padding: 10px 50px;
     cursor: pointer;
@@ -77,17 +77,17 @@ body {
 }
 .btn-primary:hover {
     background-color: #fff;
-    color: #58af9b;
+    color: #000000;
 }
 .btn-second {
-    background-color: #58af9b;
-    border: 1px solid #58af9b;
+    background-color: #FFE4E1;
+    border: 1px solid #FFE4E1;
     transition: background-color .5s;
 }
 .btn-second:hover {
     background-color: #fff;
-    border: 1px solid #58af9b;
-    color: #58af9b;
+    border: 1px solid #FFE4E1;
+    color: #000000;
 }
 .first-content {
     display: flex;
@@ -131,7 +131,7 @@ body {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    color: #95a5a6;
+    color: #000000;
 }
 .form {
     display: flex;
@@ -147,7 +147,7 @@ body {
 input:-webkit-autofill 
 {    
     -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
-    -webkit-text-fill-color: #000 !important;
+    -webkit-text-fill-color: #000000 !important;
 }
 .label-input {
     background-color: #ecf0f1;
@@ -156,7 +156,7 @@ input:-webkit-autofill
     margin: 8px;
 }
 .icon-modify {
-    color: #7f8c8d;
+    color: #000000;
     padding: 0 5px;
 }
 
@@ -241,6 +241,61 @@ input:-webkit-autofill
     z-index: -1;
     animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 }
+
+/*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
+
+@keyframes deslocamentoEsq {
+
+    from {
+        left: 0;
+        opacity: 1;
+        z-index: 12;
+    }
+
+    25% {
+        left: -80px;
+        opacity: .5;
+        /* z-index: 12; NÃO HÁ NECESSIDADE */
+    }
+
+    50% {
+        left: -100px;
+        opacity: .2;
+        /* z-index: 12; NÃO HÁ NECESSIDADE */
+    }
+
+    to {
+        left: -110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+
+@keyframes deslocamentoDir {
+
+    from {
+        left: 0;
+        z-index: 12;
+    }
+
+    25% {
+        left: 80px;
+        /* z-index: 12;  NÃO HÁ NECESSIDADE*/
+    }
+
+    50% {
+        left: 100px;
+        /* z-index: 12; NÃO HÁ NECESSIDADE*/
+        /* background-color: yellow;  Exemplo que dei no vídeo*/
+    }
+
+    to {
+        left: 110px;
+        z-index: -1;
+    }
+}
+
 
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
 
