@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegistroCientistaComponent implements OnInit {
 
-  public title: string = "Registro de pesquisador";
+  public title: string = "Registro de Pesquisador";
   public user: any = {};
   public status: string;
   public identity;
@@ -43,3 +43,4 @@ export class RegistroCientistaComponent implements OnInit {
     });
   }
 }
+
