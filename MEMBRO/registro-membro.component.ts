@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./registro-membro.component.css']
 })
 export class RegistroMembroComponent implements OnInit {
-  public title: string  = "Registro de membro";
+  public title: string  = "Registro de Membro";
   public user: any = {};
   public status: string;
   public identity;
@@ -44,4 +44,6 @@ export class RegistroMembroComponent implements OnInit {
     });
   }
 }
+
+
 
