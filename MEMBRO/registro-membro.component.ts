@@ -33,6 +33,7 @@ export class RegistroMembroComponent implements OnInit {
       "temasInteresse": this.user.temasInteresse,
       "temasInteresse2": this.user.temasInteresse2,
       "temasInteresse3": this.user.temasInteresse3,
+      "temasInteresse4": this.user.temasInteresse4,
       "nivelEscolar": this.user.nivelEscolar,
     }).subscribe(data => {
       if (data.status === 200) {
