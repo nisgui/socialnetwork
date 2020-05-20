@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./registro-membro.component.css']
 })
 export class RegistroMembroComponent implements OnInit {
-  public title: string  = "Registro de Membro";
+  public title: string  = "registro de membro";
   public user: any = {};
   public status: string;
   public identity;
@@ -33,7 +33,6 @@ export class RegistroMembroComponent implements OnInit {
       "temasInteresse": this.user.temasInteresse,
       "temasInteresse2": this.user.temasInteresse2,
       "temasInteresse3": this.user.temasInteresse3,
-      "temasInteresse4": this.user.temasInteresse4,
       "nivelEscolar": this.user.nivelEscolar,
     }).subscribe(data => {
       if (data.status === 200) {
@@ -44,6 +43,4 @@ export class RegistroMembroComponent implements OnInit {
     });
   }
 }
-
-
 
