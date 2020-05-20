@@ -6,6 +6,8 @@ const Schema = mongoose.Schema;
 const URL_MONGO =
     process.env.MONGO_URI || "mongodb+srv://cluster0-xwbzh.gcp.mongodb.net/test";
 
+
+
 const options = {
     autoIndex: true, // Don't build indexes
     reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
@@ -56,6 +58,15 @@ let usuariosDS = new Schema({
         type: String
     },
     temasInteresse: {
+        type: String
+    },
+    temasInteresse2: {
+        type: String
+    },
+    temasInteresse3: {
+        type: String
+    },
+    temasInteresse4: {
         type: String
     },
 }, {
