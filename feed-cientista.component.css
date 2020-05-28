@@ -1,0 +1,244 @@
+.usuario{
+	background-color: #F1F1F1;	
+	
+}
+.parte{	
+	margin: auto;
+}
+.fotoperfil	{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+.fotoperfil img{
+		width: 50px; 
+        height: 50px;
+		padding-left: 30px;
+}
+.fotoperfil h2{	
+	padding: 35px;
+    
+}
+.fotoperfil h4{	
+	padding: 35px;
+    text-align: center;
+   
+    
+}
+.seguidores{
+	background-color: #ffffff;	
+	text-align: center;
+	width: 87vw;
+	margin: auto;
+}
+.seguindo{
+	background-color: #ffffff;	
+	text-align: center;
+	width: 87vw;
+	margin: auto;
+}
+.seguidores h2{	
+	margin:auto;
+	background-color: #FFE4E1;	
+	font-size: 18px;
+	padding: 15px;	
+	
+}
+.seguindo h2{	
+	margin:auto;
+	background-color: #FFE4E1;	
+	font-size: 18px;
+	padding: 15px;	
+	
+}
+.triangulo {     
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 9px solid #FFE4E1;
+    margin: auto;
+    margin-bottom: 12px;
+}
+
+.informacao{
+	 border: 1px solid #F1F1F1;	 
+	 margin: 12px;
+	 display: flex;
+   justify-content: space-between;
+}
+.informacao img{
+	width: 120px; height: 120px;	
+}
+.infoseg{	
+	flex-direction: column;
+	margin: 15px;
+	
+
+}
+.dados{
+	margin-bottom: 20px;	
+}
+.infoseg p{
+	font-size: 13px;
+}
+
+/*configuration*/
+.deposit{
+  width: 60%;
+  margin: auto;  
+}
+.deposit p{
+  padding: 25px 0px 15px 0px;
+}
+.deposit label{
+  margin-bottom: 10px;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.deposit input{  
+  padding: 10px 8% 10px 8%;
+  margin-bottom: 13px;
+  background-color: #F1F1F1;
+  border: none;
+  margin-top: 4px;
+}
+label .save{
+  cursor: pointer;
+  padding:10px 15% 10px 15%;    
+  background-color: #FFCC00; 
+  color: #ffffff;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+/*fff*/
+.wrapper {
+  background: white;
+  margin: auto;
+  
+  width: 87vw;
+  margin-bottom: 25px;
+  margin-top: 20px;
+}
+.tabs {
+  list-style-type: none;  
+  border-bottom: #f1f1f1 solid 1.5px;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+
+}
+.tabs li {
+  text-align: center;
+
+}
+.tabs li a {
+  color: gray;
+  /*font-weight: bold;*/
+  text-decoration: none;
+}
+.tabs li.active {
+  background: white;
+}
+.tabs li.active a {
+/*  color: white;*/
+	color: black;    
+  box-shadow: 0px 4px 0px #FFE4E1;  
+  padding: 10px;
+}
+
+
+@media screen and (min-width: 1160px){
+	.parte{
+		display: flex;
+    width: 80%;
+    height: 80%;
+	}
+	.wrapper{
+    margin-right: 70px;
+    margin-bottom: 180px;
+    margin-top: 90px;
+    width: 60%;
+	
+	}
+  .fotoperfil img{
+    width: 200px;
+    height: 200px;
+  }
+  
+  .infoseg{
+    margin: 0px;
+    margin-left: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .tabs{
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+  }
+  .tabs li.active a {
+  padding: 20px;
+}
+  
+  .seguidores{
+    width: 30%;
+    margin-top: 90px;  
+    
+  }
+    .seguindo{
+    width: 30%;
+    margin-top: 90px;
+  
+    
+  }
+  .seguidores h2{
+    padding: 5px;
+    font-size: 13px;
+    padding: 18px;
+  }
+    .seguindo h2{
+    padding: 5px;
+    font-size: 13px;
+    padding: 18px;
+  }
+  .dados{
+    margin-bottom: 10px
+  }
+  .infoseg p {
+    font-size: 11px;
+  }
+  .informacao img{
+    width: 70px;
+    height: 80px;
+  }
+  .informacao{
+    margin: 6px;
+  }
+  .seguir{
+    margin:15px;
+	  background-color: #FFE4E1;	
+    font-size: 15px;
+}
+.publicacao {
+  
+  background-color: #FFE4E1;	
+  font-size: 15px;
+
+}
+.atualiza {
+  
+  background-color: #FFE4E1;	
+  font-size: 15px;
+
+}
+
+}
+
+
+
