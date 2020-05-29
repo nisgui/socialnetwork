@@ -4,7 +4,7 @@
         Registro completado corretamente <a [routerLink]="['/home']">Home</a>
     </div>
     <div class="alert alert-danger" *ngIf="status == 'error'">
-        Error al registrarse. Reintenta mas tarde.
+        Erro ao registrar.Tente mais tarde
     </div>
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
         <p>
