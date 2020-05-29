@@ -21,7 +21,7 @@
   <li> 
 <form class ="pesquisa">
   <input type = "search" id = "texto" >
-  <img src="/img/img/lupa.png" id = "botaopesquisa"> 
+  <img src= "/img/img/lupa.png "id = "botaopesquisa"> 
 </form>
   </li>
   </ul>
@@ -38,13 +38,13 @@
   <img src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity && identity.image" />
   </li>
   <li class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{identity.name}} <span class="caret"></span></a>
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{identity.nome}} <span class="caret"></span></a>
   <ul class="dropdown-menu">
   <li>
   <a [routerLink]="['/perfil', identity._id]"><span class="glyphicon glyphicon-user"></span> Meu perfil</a>
   </li>
   <li>
-  <a [routerLink]="['/mis-datos']" [routerLinkActive]="['active']"><span class="glyphicon glyphicon-cog"></span> Meus dados</a>
+  <a [routerLink]="['/atualizar']"  [routerLinkActive]="['active']"><span class="glyphicon glyphicon-cog"></span> Meus dados</a>
   </li>
   <li>
   <a class="pointer" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Fechar </a>
@@ -53,6 +53,7 @@
   </ul>
   </li>
   </ul>
+  <img src="/img/logo.jpeg" height="100px" width="250px">
   </div>
   </nav>
   </div>
