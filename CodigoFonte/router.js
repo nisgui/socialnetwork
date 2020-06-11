@@ -105,11 +105,7 @@ router.post('/cientista', async (req, res) => {
             new: true,
             runValidators: true
         });
-
-
-        
-
-       
+            
 
         return res.status(HttpStatus.OK).json(doc);
 
@@ -120,7 +116,38 @@ router.post('/cientista', async (req, res) => {
     }
 });
 
+router.post('/posts', async (req, res) => {
 
+    try {
 
+        console.log(req.body)
+
+        const doc = await Mongo.Posts.create(req.body);
+
+        return res.status(HttpStatus.OK).json(doc);
+
+    } catch (e) {
+
+        return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(e.toString());
+
+    }
+});
+
+router.get('/posts', async (req, res) => {
+
+    try {
+
+        console.log(req.body)
+
+        const doc = await Mongo.Posts.find();
+
+        return res.status(HttpStatus.OK).json(doc);
+
+    } catch (e) {
+
+        return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(e.toString());
+
+    }
+});
 
 module.exports = app => app.use('/', router);
