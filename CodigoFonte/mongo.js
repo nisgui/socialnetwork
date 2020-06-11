@@ -116,4 +116,23 @@ let cientistasDS = new Schema({
 
 expp.Cientistas = mongoose.model('Cientistas', cientistasDS);
 
+let postsDS = new Schema({
+    data: {
+        type: Date,
+        default: Date.now
+    },
+    usuario: {
+        type: String
+    },
+    conteudo: {
+        type: String
+    },
+}, {
+    collection: 'posts'
+});
+
+expp.Posts = mongoose.model('Posts', postsDS);
+
+
+
 module.exports = expp;
