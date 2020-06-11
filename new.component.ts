@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-new',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  data: any = {};
 
-  ngOnInit(): void {
+  constructor(
+    private apiService: ApiService
+  ) { }
+
+ngOnInit() {
+
+}
+
+publicar() {
+	console.log(this.data);
+
+ this.apiService.post("posts", this.data).subscribe(data => {
+      if (data.status === 200) {
+        console.log(data);
+      }
+    },err => { 
+	console.log(err);
+    });
   }
+
+
+
+postar() {
+
+
+
+}
 
 }
