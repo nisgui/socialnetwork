@@ -9,6 +9,7 @@ import { AtualizarComponent } from './components/atualizar/atualizar.component';
 import { AtualizarmembroComponent } from './components/atualizarmembro/atualizarmembro.component';
 import { FeedCientistaComponent } from './components/feed-cientista/feed-cientista.component';
 import { NewComponent } from './components/new/new.component';
+import { PublicarComponent } from './components/publicar/publicar.component';
 
 
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'feed-cientista', component: FeedCientistaComponent},
   {path: 'atualizar', component: AtualizarComponent},
   {path: 'atualizarmembro', component: AtualizarmembroComponent},
-  {path: 'new', component: NewComponent}
+  {path: 'new', component: NewComponent},
+  {path: 'publicar', component: PublicarComponent}
 
 ];
 
