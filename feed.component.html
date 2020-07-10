@@ -1,7 +1,8 @@
 <div class="usuario">
 
-    <br/>
-    <button class = "atualizam" [routerLink]="['/atualizarmembro']" [routerLinkActive]="['active']"><span class="glyphicon glyphicon-user"></span> Atualizar membro</button>
+    <br />
+    <button class="atualizam" [routerLink]="['/atualizarmembro']" [routerLinkActive]="['active']"><span
+            class="glyphicon glyphicon-user"></span> Atualizar membro</button>
     <div class="parte">
         <section class="wrapper">
             <ul class="tabs">
@@ -13,11 +14,20 @@
                     <div class="fotoperfil">
                         <img src="assets/img/larissa.png">
                         <h2>Larissa Silveira</h2>
-                        <button class = seguir> Seguir </button>
+
+                        <button class = seguir onclick="this.innerHTML = 'Seguindo'"> Seguir </button>
+
+                        
+
+
+
                     </div>
                 </article>
+
             </section>
+
         </section>
+
         <div class="seguidores">
             <h2> Seguidores</h2>
             <div>
@@ -65,5 +75,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class='publi'>
+        <img src="assets/img/publi.png" height="190px" width="200px">
+        
+
+    </div>
+    <div class="botao">
+        <button class = seguir onclick="this.innerHTML = 'Curtindo'"> Curtir </button>
     </div>
 </div>
