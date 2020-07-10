@@ -243,8 +243,22 @@ label .save{
   font-size: 15px;
 
 }
+.publi{
+  position: absolute;
+  margin-left: 900px;
+  top:680px;
+  
+}
+.botao{
+  position: absolute;
+  margin-left: 900px;
+  top:2000x;
+}
 
 }
+
+
+
 
 
 
