@@ -231,5 +231,17 @@ label .save{
     background-color: #FFE4E1;	
     font-size: 15px;
   }
+  .publi{
+    position: absolute;
+    margin-left: 900px;
+    top:600px;
+    
+  }
+  .botao{
+    position: absolute;
+    margin-left: 900px;
+    top:200x;
+  }
+  
   
 }
