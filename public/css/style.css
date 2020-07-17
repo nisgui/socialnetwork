@@ -93,6 +93,9 @@ button:focus {
     outline: none;
 }
 
+
+
+
 img {
     height: auto;
     max-width: 100%;
@@ -323,6 +326,15 @@ a:hover.google {
 
 a:hover.pinterest {
     background: #ca212a;
+}
+
+
+.radio-option {
+    cursor: pointer;
+    height: 23px;
+    width: 23px;
+}
+
 }
 
 a:hover.youtube {
@@ -1119,9 +1131,18 @@ header.sticky {
 .add-btn {
     bottom: 100px;
     position: absolute;
-    right: 43px;
+    right: 130px;
+    color: black;
+    background: grey;
 }
 
+.add-btn2 {
+    bottom: 100px;
+    position: absolute;
+    right: 43px;
+    color: black;
+    background: red;
+}
 .add-btn > span {
     color: #fff;
     margin-right: 20px;

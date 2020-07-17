@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+const bodyParser = require("body-parser");
 
 var formidable = require("express-formidable");
 app.use(formidable());
@@ -11,6 +12,10 @@ var ObjectId = mongodb.ObjectId;
 var http = require("http").createServer(app);
 var bcrypt = require("bcrypt");
 var fileSystem = require("fs");
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
 
 var jwt = require("jsonwebtoken");
 var accessTokenSecret = "myAccessTOkenSecret1234567890";
@@ -60,9 +65,9 @@ http.listen(3000, function() {
 			var date = request.fields.date;
 			var cpf = request.fields.cpf;
 			var email = request.fields.email;
-			var temas = request.fields.temas;
 			var password = request.fields.password;
 			var gender = request.fields.gender;
+			var temas = request.fields.temas;
 
 			database.collection("users").findOne({
 				$or: [{
@@ -79,7 +84,11 @@ http.listen(3000, function() {
 							"date": date,
 							"cpf": cpf,
 							"email": email,
-							"temas": temas,
+							"estado": "",
+							"cidade": "",
+							"local": "",
+							"nivel": "",
+							"link": "",
 							"password": hash,
 							"gender": gender,
 							"profileImage": "",
@@ -88,6 +97,7 @@ http.listen(3000, function() {
 							"city": "",
 							"country": "",
 							"abotMe": "",
+							"temas": [temas],
 							"friends": [],
 							"pages": [],
 							"notifications": [],
@@ -147,7 +157,7 @@ http.listen(3000, function() {
 							"local": local,
 							"nivel": nivel,
 							"link": link,
-							"temas": "",
+							"temas": [],
 							"password": hash,
 							"gender": gender,
 							"profileImage": "",
@@ -247,6 +257,7 @@ http.listen(3000, function() {
 						"data": user
 					});
 				}
+
 			});
 		});
 
@@ -353,6 +364,11 @@ http.listen(3000, function() {
 			var accessToken = request.fields.accessToken;
 			var name = request.fields.name;
 			var date = request.fields.date;
+			var estado = request.fields.estado;
+			var cidade = request.fields.cidade;
+			var nivel = request.fields.nivel;
+			var local = request.fields.local;
+			var link = request.fields.link;
 			var aboutMe = request.fields.aboutMe;
 			
 			database.collection("users").findOne({
@@ -369,6 +385,11 @@ http.listen(3000, function() {
 					},{
 						$set: {
 							"name": name,
+							"estado": estado,
+							"cidade": cidade,
+							"nivel": nivel,
+							"local": local,
+							"link": link,
 							"date": date,
 							"aboutMe": aboutMe
 						}
@@ -383,7 +404,10 @@ http.listen(3000, function() {
 		});
 
 		app.get("/home", function(request, result){
-			result.render("home");
+			database.collection("posts").find().toArray(function (error, posts){
+				result.render("home",{ "posts": posts});
+			});
+
 		});
 
 		app.post("/addPost", function(request, result){
@@ -560,6 +584,7 @@ http.listen(3000, function() {
 			}
 		});
 	});
+
 
 	//like section
 	app.post("/toggleLikePost", function(request, result){
@@ -1178,6 +1203,7 @@ http.listen(3000, function() {
 			var ano = request.fields.ano;
 			var domainName = request.fields.domainName;
 			var additionalInfo = request.fields.additionalInfo;
+			var file = request.fields.file;
 
 			
 			database.collection('users').findOne({
@@ -1195,6 +1221,7 @@ http.listen(3000, function() {
 							"ano": ano,
 							"domainName": domainName,
 							"additionalInfo": additionalInfo,
+							"file": file,
 							"likers": [],
 							"user": {
 								"_id": user._id,
@@ -1612,6 +1639,258 @@ http.listen(3000, function() {
 		app.get("/notifications", function(request, result){
 				result.render("notifications");
 		});
+
+
+
+
+		app.get("/user/:_id", function(request, result){
+				var _id = request.params._id;
+				
+				database.collection("users").findOne({
+					"_id": ObjectId(_id)
+				}, function(error, user){
+					if(user == null){
+						result.json({
+							"status": "error",
+							"message": "User does not exist."
+						});
+					} else {
+						result.render("userProfile", {
+							"_id": _id
+						});
+					}
+				});
+			});
+
+
+
+		app.post("/getUserDetails", function(request, result){
+			var _id = request.fields._id;
+				
+			database.collection("users").findOne({
+				"_id": ObjectId(_id)
+			}, function(error, user){
+				if(user == null){
+					result.json({
+						"status": "error",
+						"message": "User does not exist."
+					});
+				} else{
+					result.json({
+						"status": "success",
+						"message": "Record has been fetched.",
+						"data": user
+					});
+
+				}
+			});
+		});
+
+		app.post("/postDetails", function(request, result){
+			var _id = request.fields._id;
+				
+			database.collection("posts").findOne({
+				"_id": ObjectId(_id)
+			}, function(error, user){
+				if(user == null){
+					result.json({
+						"status": "error",
+						"message": "Post does not exist."
+					});
+				} else{
+					result.json({
+						"status": "success",
+						"message": "Record has been fetched.",
+						"posts": posts
+
+					});
+
+				}
+			});
+		});
+
+		//app.get("/doDelete", function(request, result){
+
+		//	console.log("doDeleteeeeeeeeee");
+		//	var _id = request.params._id;
+
+		//	database.collection("posts").deleteOne({
+		//			"_id": ObjectId(_id)
+		//		}, function(error, data){
+		//			console.log(error);
+		//			console.log(data);
+		//		});
+		//});
+
+		app.get("/post/:_id", function(request, result){
+				var _id = request.params._id;
+				
+				database.collection("posts").findOne({
+					"_id": ObjectId(_id)
+				}, function(error, post){
+					if(post == null){
+						result.json({
+							"status": "error",
+							"message": "Post does not exist."
+						});
+					} else {
+						result.render("editPost", {
+							"_id": _id
+						});
+					}
+				});
+			});
+		app.post("/updatePost", function(request, result){
+
+			var caption = request.fields.caption;
+			
+			database.collection("posts").findOne({
+				"_id": ObjectId(_id)
+				
+			}, function(error, post){
+				if(post == null){
+					result.json({
+						"status": "error",
+						"message": "User has been logged out. Please login aagain."
+					});
+				} else {
+					database.collection("posts").updateOne({
+						"_id": _id
+					},{
+						$set: {
+							"caption": caption,
+
+						}
+					}, function(error, data){
+						result.json({
+							"status": "status",
+							"message": "Post has been updated."	
+						});
+					});
+				}
+			});
+		});
+
+		app.get("/getPerfil", function(request, result){
+			result.render("getPerfil");
+		});
+
+		app.post("/getPerfil", function(request, result){
+			var _id = request.fields._id;
+				
+			database.collection("users").findOne({
+				"_id": ObjectId(_id)
+			}, function(error, user){
+				if(user == null){
+					result.json({
+						"status": "error",
+						"message": "User does not exist."
+					});
+				} else{
+					result.json({
+						"status": "success",
+						"message": "Record has been fetched.",
+						"data": user
+					});
+
+				}
+			});
+		});
+
+		app.post("/nada", function(request, result){
+			var _id = request.params._id;
+			database.collection("posts").findOne({
+				"_id": ObjectId(_id)
+			}, function(error, post){
+				if(post ==null){
+					result.json({
+						"status": "error",
+						"message": "User has been logged out. Please login again."
+					});
+				} for(var a = 0 ; a < user.pages.length; a++){
+					ids.push(user.pages[a]._id);
+				}
+				
+				database.collection("posts").find({					
+					"user._id": {
+						$in: ids
+					}
+				})
+				.sort({
+					"createdAt": -1
+				})
+				.limit(5)
+				.toArray(function(error, data){
+					
+					result.json({
+						"status": "success",
+						"message": "Record has been fetched",						
+						"data": data
+					});					
+				});			
+			
+			});
+		});
+
+		app.delete('/post/:id', (req, res) => {
+			db.collection('post').remove({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
+				if (err) return console.log(err)
+					console.log(req.body)
+				res.redirect('/')
+			})
+		});
+
+		app.post("/getPosts", function(request, result) {
+		var _id = request.fields._id;
+		
+		database.collection("users").findOne({
+			"_id": ObjectId(_id)
+		}, function(error, user){
+			if(user == null){
+				result.json({
+					"status": "error",
+					"message": "User has been logged out. Please login again."				
+				});
+			} else {				
+				var ids = [];
+				ids.push(user._id);				
+				/* var username = [];
+				username.push(user.name); */
+
+				for(var a = 0 ; a < user.pages.length; a++){
+					ids.push(user.pages[a]._id);
+				}
+				
+				database.collection("posts").find({					
+					"user._id": {
+						$in: ids
+					}
+				})
+				.sort({
+					"createdAt": -1
+				})
+				.limit(5)
+				.toArray(function(error, data){
+					
+					result.json({
+						"status": "success",
+						"message": "Record has been fetched",						
+						"data": data
+					});					
+				});			
+			}
+		});
+	});
+
+		app.post("/do-delete", function(req, res){
+			var _id = request.fields._id;
+			console.log("ta indo")
+
+			database.collection("posts").remove({
+			"_id": ObjectId(_id)
+		});
+	});
+		
 
 		
 	});		

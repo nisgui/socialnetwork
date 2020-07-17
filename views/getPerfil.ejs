@@ -1,0 +1,139 @@
+<%- include ("../views/includes/header") %>
+<section>
+	<div class="feature-photo">
+
+		<figure>
+			<img class="cover-photo" id="cover-photo" style="width: 100%; height: 700px; object-fit: cover;">
+		</figure>
+
+		<div class="add-btn">
+				<span class= "seguidores" id="seguidores"></span>
+			</div>
+
+
+		<div class="container-fluid">
+		<div class="row merged">
+			<div class="col-md-2">
+				<div class="user-avatar">
+					<figure>
+					<img class="profile-image" id="profile-image" style="width: 100%; height: 150px; object-fit=cover;">
+					</figure>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<div class="timeline-info">
+			<ul>
+				<li class="admin-name">
+					<h5 class="user-name" id="user-name" style="padding-top: 20px; padding-bottom: 20px;"></h5>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+	
+	
+	<section>
+		<div class="gap gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row" id="page-container">
+						
+						<ul>
+						<p style="font-size: 21px; font-style: italic; color: black;" > Dados do perfil: </p>
+
+						<p class = "email" id = "email" style="font-size: 21px;"> </p> 
+
+						<p class = "nivel" id = "nivel" style="font-size: 21px;"> </p> 
+						<p class = "temas" id = "temas" style="font-size: 21px;"> </p> 
+						<p class = "estado" id = "estado" style="font-size: 21px;"> </p> 
+						<p class = "cidade" id = "cidade" style="font-size: 21px;"> </p>
+						<p class = "nivel" id = "nivel" style="font-size: 21px;"> </p>
+						<p class = "local" id = "local" style="font-size: 21px;"> </p>
+						<p class = "link" id = "link" style="font-size: 21px;"> </p> 
+						<p class = "temas" id = "temas" style="font-size: 21px;>" </p>
+
+
+						</ul>
+
+
+							
+							<div class="col-md-3">
+
+							</div>
+			
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<script>
+	var meuPerfil = true;
+
+	function getPerfil(){
+		document.querySelector(".cover-photo").setAttribute("src", mainURL + "/" + window.user.coverPhoto);
+		document.querySelector(".profile-image").setAttribute("src", mainURL + "/" + window.user.profileImage);
+
+		document.querySelector(".user-name").innerHTML = window.user.name;
+		document.querySelector(".email").innerHTML = window.user.email;
+		document.querySelector(".seguidores").innerHTML = window.user.friends.length + " Seguidores";
+		if(window.user.cidade == null){
+
+		}else{
+			document.querySelector(".cidade").innerHTML = window.user.cidade;
+
+		}
+
+		if(window.user.estado == null){
+
+		}else{
+			document.querySelector(".estado").innerHTML = window.user.estado;
+
+		}
+
+		if(window.user.local == null){
+
+		}else{
+			document.querySelector(".local").innerHTML = window.user.local;
+
+		}
+		if(window.user.nivel == null){
+
+		}else{
+			document.querySelector(".nivel").innerHTML = window.user.nivel;
+
+		}
+		if(window.user.link == null){
+
+		}else{
+			document.querySelector(".link").innerHTML = window.user.link;
+
+		}
+		if(window.user.temas == null){
+
+		}else{
+			document.querySelector(".temas").innerHTML = window.user.temas;
+
+		}
+
+		
+
+	}
+		
+
+	</script>
+
+</script>
+
+
+
+
+
+<%- include ("../views/includes/foooter") %>

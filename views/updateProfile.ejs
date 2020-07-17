@@ -57,8 +57,13 @@
 
 		document.querySelector(".user-name").innerHTML = window.user.name;
 		document.querySelector(".name").value = window.user.name;
-		document.querySelector(".email").value = window.user.email;
 		document.querySelector(".date").value = window.user.date;
+		document.querySelector(".email").value = window.user.email;
+		document.querySelector(".estado").value = window.user.estado;
+		document.querySelector(".cidade").value = window.user.cidade;
+		document.querySelector(".local").value = window.user.local;
+		document.querySelector(".nivel").value = window.user.nivel;
+		document.querySelector(".link").value = window.user.link;
 		document.querySelector(".aboutMe").value = window.user.aboutMe;
 
 
@@ -119,6 +124,7 @@
 					
 					var response = JSON.parse(this.responseText);
 					alert(response.message);
+
 				}
 			};
 			
@@ -151,7 +157,7 @@
 
 									<form onsubmit="return doUpdateProfile(this);">
 										<div class="form-group">
-											<input type="text" required class="name" name="name" />
+											<input type="text"  class="name" name="name" />
 											<label class="control-label">Nome</label>
 											<i class="mtrl-select"></i>
 										</div>
@@ -171,6 +177,49 @@
 											<label class="control-label">Data de nascimento</label>
 											<i class="mtrl-select"></i>
 										</div>
+
+										<br></br>
+
+										<div class="form-group">
+											<input type="text"  class="estado" name="estado" />
+											<label class="control-label">Estado</label>
+											<i class="mtrl-select"></i>
+										</div>
+
+										<br></br>
+
+										<div class="form-group">
+											<input type="text"  class="cidade" name="cidade" />
+											<label class="control-label">Cidade</label>
+											<i class="mtrl-select"></i>
+										</div>
+
+										<br></br>
+
+										<div class="form-group">
+											<input type="text"  class="local" name="local" />
+											<label class="control-label">Local de publicaçao</label>
+											<i class="mtrl-select"></i>
+										</div>
+
+										<br></br>
+
+										<div class="form-group">
+											<input type="text"  class="nivel" name="nivel" />
+											<label class="control-label">Nivel de escolaridade</label>
+											<i class="mtrl-select"></i>
+										</div>
+
+										<br></br>
+
+										<div class="form-group">
+											<input type="text"  class="link" name="link" />
+											<label class="control-label">Link do currículo</label>
+											<i class="mtrl-select"></i>
+										</div>
+
+
+
 
 										<br></br>
 

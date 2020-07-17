@@ -14,7 +14,7 @@
 					<div class="timeline-info">
 						<ul class="nav nav-tabs">
 							<li>
-								<a class="active" data-toggle="tab" href="#people">People</a>
+								<a data-toggle="tab" href="#people">People</a>
 								<a data-toggle="tab" href="#pages">Publicações</a>
 								<a data-toggle="tab" href="#groups">Groups</a>
 							</li>
@@ -92,7 +92,7 @@
 						html += '<li>';
 						html += '<div class="nearly-pepls">';
 						html += '<figure>';
-						html += '<a href="/">';
+						html += '<a href="/user/' + data._id + '">';
 						html += '<img src="' + mainURL + '/' + data.profileImage + '">';
 						html += '</a>';
 						html += '</figure>';
